@@ -1,19 +1,19 @@
 
 node {
   stage("Clone the project") {
-    echo "cloning"
+    echo "cloning..."
   }
 
   stage("Compilation") {
-    echo "Compilation"
+    echo "Compilation..."
   }
 
   stage("Tests and Deployment") {
     stage("Runing unit tests") {
-      echo "Compilation"
+      echo "Compilation..."
     }
     stage("Deployment") {
-      echo "Deployment"
+      echo "Deployment..."
     }
   }
 }
