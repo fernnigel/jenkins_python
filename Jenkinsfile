@@ -1,19 +1,19 @@
-
 node {
   stage("Clone the project") {
-    echo "cloning..."
+    git branch: 'main', url: 'https://github.com/fernnigel/jenkins_python.git'
   }
-
-  stage("Compilation") {
-    echo "Compilation..."
+  stage("Setting Virtual Environment") {
+        sh 'python3 -m venv .'
   }
-
-  stage("Tests and Deployment") {
-    stage("Runing unit tests") {
-      echo "Compilation..."
-    }
-    stage("Deployment") {
-      echo "Deployment..."
-    }
+  stage("Installing") {
+     sh './bin/pip install -r requirement.txt'
+  }
+  stage("Deploying") {
+    sh 'python3 app1.py'
+  }
+  stage("Notifying") {
+    emailext body: 'Deployed Successfully' , 
+        subject: 'App Deployed Status' , 
+        to: 'nigelfernandes.contact@gmail.com'
   }
 }
