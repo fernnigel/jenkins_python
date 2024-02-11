@@ -3,13 +3,13 @@ node {
     git branch: 'main', url: 'https://github.com/fernnigel/jenkins_python.git'
   }
   stage("Setting Virtual Environment") {
-        sh 'python3 -m venv .'
+        sh 'python -m venv .'
   }
   stage("Installing") {
      sh './bin/pip install -r requirement.txt'
   }
   stage("Deploying") {
-    sh 'python3 app1.py'
+    sh 'python app1.py'
   }
   stage("Notifying") {
     emailext body: 'Deployed Successfully' , 
