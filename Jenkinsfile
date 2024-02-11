@@ -12,7 +12,7 @@ node {
     sh 'python3 app1.py'
   }
   stage("Notifying") {
-    emailext body: 'Deployed Successfully' , 
+    emailext body: 'Deployed Successfully!' , 
         subject: 'App Deployed Status' , 
         to: 'nigelfernandes.contact@gmail.com'
   }
